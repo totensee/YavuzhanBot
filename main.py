@@ -70,10 +70,10 @@ async def languages(ctx):
 
 @bot.command()
 async def source_code(ctx):
-    await ctx.channel.send(f"```Github Repository (source code):\nhttps://github.com/totensee/YavuzhanBot```")
+    await ctx.channel.send(f"```Github Repository (source code):```\nhttps://github.com/totensee/YavuzhanBot")
 
 @bot.command()
 async def github(ctx):
-    await ctx.channel.send(f"```Github Repository (source code):\nhttps://github.com/totensee/YavuzhanBot```")
+    await ctx.channel.send(f"```Github Repository (source code):```\nhttps://github.com/totensee/YavuzhanBot")
 
 bot.run(token)
