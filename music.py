@@ -46,7 +46,7 @@ class music(commands.Cog):
         if not validators.url(url):
             video = youtube_search.YoutubeSearch(url, max_results=1).to_dict()[0]
             url = f"https://www.youtube.com/watch?v={video['id']}"
-            videoData = {"views": video["views"], "duration": video["duration"], "thumbnail": video["thumbnails"][0]}
+            videoData = {"title": video["title"], "views": video["views"], "duration": video["duration"], "thumbnail": video["thumbnails"][0]}
         else:
             video = youtube_search.YoutubeSearch(url, max_results=1).to_dict()[0]
             videoData = {"title": video["title"], "views": video["views"], "duration": video["duration"], "thumbnail": video["thumbnails"][0]}
@@ -59,7 +59,7 @@ class music(commands.Cog):
             else:
                 embed.add_field(name=key.capitalize(), value=videoData[key])
 
-        await ctx.channel.send(embed)
+        await ctx.channel.send(embed=embed)
 
         with youtube_dl.YoutubeDL(YDL_OPTIONS) as ydl:
             info = ydl.extract_info(url, download=False)
