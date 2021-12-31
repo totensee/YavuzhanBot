@@ -1,4 +1,4 @@
-import os, requests, discord, music
+import os, requests, discord, music, tts
 from discord.ext import commands
 
 color = 0xAAA9AD
@@ -9,6 +9,7 @@ prefix = "."
 bot = commands.Bot(command_prefix=prefix, case_insensitive=True)
 bot.remove_command("help")
 
+tts.setup(bot)
 music.setup(bot)
 
 @bot.event
